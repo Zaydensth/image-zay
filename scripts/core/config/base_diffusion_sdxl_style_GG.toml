@@ -1,7 +1,9 @@
+#Gege
+
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 64
+bucket_reso_steps = 48
 cache_latents = true
 cache_latents_to_disk = true
 caption_extension = ".txt"
@@ -17,17 +19,17 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
-max_bucket_reso = 2048
-max_data_loader_n_workers = 2
-max_grad_norm = 1.3168
-max_token_length = 75
+max_bucket_reso = 1792
+max_data_loader_n_workers = 4
+max_grad_norm = 1
+max_token_length = 150
 min_bucket_reso = 256
 mixed_precision = "bf16"
 no_half_vae = true
 output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
-prior_loss_weight = 0.65
+prior_loss_weight = 1
 resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
@@ -35,42 +37,45 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = ""
+training_comment = "SDXL_STYLE"
 xformers = true
 
 ###### steps and epochs ######
+max_train_epochs = 25
 save_every_n_epochs = 5
 
 ###### loss function ######
 loss_type = "l2"
 
 ###### batch size ######
-train_batch_size = 4
-gradient_accumulation_steps = 1
+train_batch_size = 2
+gradient_accumulation_steps = 6
 
 ###### optimizer ######
 optimizer_type = "adamw"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=8.546e-04", "eps=1e-08",]
-unet_lr = 2.89e-5
-text_encoder_lr = 2.89e-6
+optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.005", "eps=1e-08",]
+unet_lr = 2.5e-5
+text_encoder_lr = 5e-6
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
-lr_warmup_steps = 26
+lr_warmup_steps = 100
 
 ###### noise offset ######
 noise_offset_type = "Original"
-noise_offset = 0.0411
+noise_offset = 0.045
 
 ###### misc ######
-network_alpha = -1
-network_dim = -1
+network_alpha = 128
+network_dim = 128
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0
-caption_dropout_rate = 0
+network_dropout = 0.03
+caption_dropout_rate = 0.05
 clip_skip = 1
 max_timestep = 1000
-min_snr_gamma = 8
+min_snr_gamma = 6
 scale_weight_norms = 5
 seed = 2951032222
+
+
