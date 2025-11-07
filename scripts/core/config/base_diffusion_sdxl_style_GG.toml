@@ -3,7 +3,7 @@
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 48
+bucket_reso_steps = 64
 cache_latents = true
 cache_latents_to_disk = true
 caption_extension = ".txt"
@@ -19,11 +19,11 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
-max_bucket_reso = 1792
-max_data_loader_n_workers = 4
-max_grad_norm = 1
-max_token_length = 150
+###### resolution & loader ######
+max_bucket_reso = 2048
 min_bucket_reso = 256
+max_data_loader_n_workers = 4
+max_token_length = 150
 mixed_precision = "bf16"
 no_half_vae = true
 output_dir = "test_sdxl_sd3"
@@ -37,7 +37,7 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "SDXL_STYLE"
+training_comment = ""
 xformers = true
 
 ###### steps and epochs ######
@@ -48,34 +48,32 @@ save_every_n_epochs = 5
 loss_type = "l2"
 
 ###### batch size ######
-train_batch_size = 2
-gradient_accumulation_steps = 6
+train_batch_size = 3
+gradient_accumulation_steps = 4
 
 ###### optimizer ######
 optimizer_type = "adamw"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.005", "eps=1e-08",]
-unet_lr = 2.5e-5
-text_encoder_lr = 5e-6
+optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.002", "eps=1e-08," ]
+unet_lr = 2.4e-5
+text_encoder_lr = 4e-6
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
-lr_warmup_steps = 100
+lr_warmup_steps = 75
 
 ###### noise offset ######
 noise_offset_type = "Original"
-noise_offset = 0.045
+noise_offset = 0.04
 
 ###### misc ######
-network_alpha = 128
-network_dim = 128
+network_alpha = -1
+network_dim = -1
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0.03
+network_dropout = 0.025
 caption_dropout_rate = 0.05
 clip_skip = 1
 max_timestep = 1000
-min_snr_gamma = 6
+min_snr_gamma = 7
 scale_weight_norms = 5
 seed = 2951032222
-
-
