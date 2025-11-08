@@ -1,3 +1,5 @@
+#gege upload
+
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
@@ -17,11 +19,11 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
+###### resolution & loader ######
 max_bucket_reso = 2048
-max_data_loader_n_workers = 2
-max_grad_norm = 1
-max_token_length = 75
 min_bucket_reso = 256
+max_data_loader_n_workers = 2
+max_token_length = 75
 mixed_precision = "bf16"
 no_half_vae = true
 output_dir = "test_sdxl_sd3"
@@ -51,9 +53,9 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "adamw"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=1e-04", "eps=1e-08",]
+optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.0005", "eps=1e-08," ]
 unet_lr = 2e-5
-text_encoder_lr = 2e-6
+text_encoder_lr = 1e-6
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
@@ -61,7 +63,7 @@ lr_warmup_steps = 25
 
 ###### noise offset ######
 noise_offset_type = "Original"
-noise_offset = 0.0357
+noise_offset = 0.0324
 
 ###### misc ######
 network_alpha = -1
@@ -72,6 +74,6 @@ network_dropout = 0
 caption_dropout_rate = 0
 clip_skip = 1
 max_timestep = 1000
-min_snr_gamma = 8
+min_snr_gamma = 7
 scale_weight_norms = 5
 seed = 2951032222
