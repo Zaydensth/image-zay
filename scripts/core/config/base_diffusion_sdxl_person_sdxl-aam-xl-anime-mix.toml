@@ -1,3 +1,5 @@
+#goy
+
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
@@ -27,7 +29,7 @@ no_half_vae = true
 output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
-prior_loss_weight = 0.7
+prior_loss_weight = 1
 resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
@@ -39,6 +41,7 @@ training_comment = ""
 xformers = true
 
 ###### steps and epochs ######
+max_train_epochs = 25
 save_every_n_epochs = 5
 
 ###### loss function ######
@@ -59,10 +62,10 @@ lr_scheduler = "constant"
 
 ###### noise offset ######
 # noise_offset_type = "Original"
-# noise_offset = 0.0357
+# noise_offset = 0.0324
 # noise_offset_type = "Multires"
-# multires_noise_iterations = 6
-# multires_noise_discount = 0.3
+# multires_noise_iterations = 4
+# multires_noise_discount = 0.1
 
 ###### misc ######
 network_alpha = -1
