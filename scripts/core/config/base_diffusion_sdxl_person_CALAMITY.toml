@@ -3,7 +3,7 @@
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 64
+bucket_reso_steps = 32
 cache_latents = true
 cache_latents_to_disk = false
 caption_extension = ".txt"
