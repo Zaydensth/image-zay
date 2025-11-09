@@ -53,8 +53,12 @@ train_batch_size = 4
 gradient_accumulation_steps = 1
 
 ###### optimizer ######
-optimizer_type = "adamw"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.0005", "eps=1e-08" ]
+optimizer_type = "AdamW8bit"
+optimizer_args = [
+    "betas=(0.9,0.999)",
+    "weight_decay=0.0005",
+    "eps=1e-08"
+]
 unet_lr = 0.00001345
 text_encoder_lr = 0.0001345
 
