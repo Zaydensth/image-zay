@@ -26,8 +26,8 @@ max_token_length = 150
 min_bucket_reso = 256
 mixed_precision = "bf16"
 no_half_vae = true
-output_dir = "runs/sdxl_multi_style"
-output_name = "sdxl_multi_style_lora"
+output_dir = "test_sdxl_sd3"
+output_name = "last"
 pretrained_model_name_or_path = ""
 prior_loss_weight = 1
 resolution = "1024,1024"
@@ -53,14 +53,16 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.01", "eps=1e-08",]
+optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=0.01", "eps=1e-06", "optim_bits=8"]
 learning_rate = 0.000008
 unet_lr = 0.000008
 text_encoder_lr = 0.000006
 
 ###### lr scheduler ######
 lr_scheduler = "cosine_with_restarts"
-lr_warmup_steps = 150
+lr_warmup_steps = 300
+lr_cycle_steps = 200
+min_lr_ratio = 0.05
 
 ###### noise offset ######
 noise_offset_type = "Original"
@@ -70,8 +72,8 @@ noise_offset = 0.0324
 #multires_noise_discount = 0.3
 
 ###### misc ######
-network_alpha = 160
-network_dim = 160
+network_alpha = -1
+network_dim = -1
 network_module = "networks.lora"
 network_args = []
 network_dropout = 0.02
