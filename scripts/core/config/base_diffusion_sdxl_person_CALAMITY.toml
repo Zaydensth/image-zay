@@ -3,7 +3,7 @@
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 32
+bucket_reso_steps = 64
 cache_latents = true
 cache_latents_to_disk = true
 caption_extension = ".txt"
@@ -19,13 +19,15 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
-max_bucket_reso = 1536
+###### resolution & loader ######
+max_bucket_reso = 2048
+min_bucket_reso = 256
 max_data_loader_n_workers = 2
 max_grad_norm = 1
 max_token_length = 75
 mixed_precision = "bf16"
 no_half_vae = true
-output_dir = "ipank_dominant_output"
+output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
 prior_loss_weight = 1
@@ -36,13 +38,12 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "ipank-dominant"
+training_comment = ""
 xformers = true
 
-
 ###### steps and epochs ######
-max_train_epochs = 25
-save_every_n_epochs = 5
+max_train_epochs = 20
+save_every_n_epochs = 10
 
 ###### loss function ######
 loss_type = "l2"
@@ -52,31 +53,28 @@ train_batch_size = 4
 gradient_accumulation_steps = 1
 
 ###### optimizer ######
-optimizer_type = "AdamW8bit"
-optimizer_args = ["betas=(0.9, 0.999)", "weight_decay=0.01", "eps=1e-06", "optim_bits=8"]
-unet_lr = 0.000008
-text_encoder_lr = 0.000006
+optimizer_type = "adamw"
+optimizer_args = [ "betas=(0.9, 0.999)", "lr=0.00001345", "weight_decay=0.0005", "eps=1e-08," ]
+unet_lr = 0.00001345
+text_encoder_lr = 0.0001345
 
 ###### lr scheduler ######
-lr_scheduler = "cosine_with_restarts"
+lr_scheduler = "cosine"
+lr_warmup_steps = 25
 
 ###### noise offset ######
-noise_offset_type = "Multires"
-noise_offset = 0.0357
-multires_noise_iterations = 6
-multires_noise_discount = 0.3
+noise_offset_type = "Original"
+noise_offset = 0.0324
 
-###### LoRA modularity ######
-network_alpha = 128
-network_dim = 32
+###### misc ######
+network_alpha = -1
+network_dim = -1
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0.1
-
-###### caption robustness ######
-caption_dropout_rate = 0.1
+network_dropout = 0
+caption_dropout_rate = 0
 clip_skip = 1
 max_timestep = 1000
-min_snr_gamma = 5
-scale_weight_norms = 5
+min_snr_gamma = 6
+scale_weight_norms = 5
 seed = 2951032222
