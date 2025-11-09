@@ -54,12 +54,13 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
-optimizer_args = ["weight_decay=0.001"]
-unet_lr = 0.00002
-text_encoder_lr = 0.00001
+optimizer_args = ["weight_decay=0.0001"]
+unet_lr = 0.00001345
+text_encoder_lr = 0.000001345
 
 ###### lr scheduler ######
-lr_scheduler = "constant"
+lr_scheduler = "cosine_with_restarts"
+lr_warmup_steps = 25
 
 ###### noise offset ######
 noise_offset_type = "Original"
