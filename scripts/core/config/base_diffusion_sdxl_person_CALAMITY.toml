@@ -55,12 +55,11 @@ gradient_accumulation_steps = 1
 ###### optimizer ######
 optimizer_type = "prodigy"
 optimizer_args = ["decouple=True", "d_coef=0.75", "weight_decay=0.005", "use_bias_correction=True", "safeguard_warmup=True"]
-unet_lr = 0.00001345
-text_encoder_lr = 0.0001345
+unet_lr = 1
+text_encoder_lr = 1
 
 ###### lr scheduler ######
-lr_scheduler = "cosine"
-lr_warmup_steps = 25
+lr_scheduler = "constan"
 
 ###### noise offset ######
 noise_offset_type = "Original"
