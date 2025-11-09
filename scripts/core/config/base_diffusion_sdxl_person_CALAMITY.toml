@@ -3,7 +3,7 @@
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 64
+bucket_reso_steps = 32
 cache_latents = true
 cache_latents_to_disk = true
 caption_extension = ".txt"
@@ -20,7 +20,7 @@ huggingface_repo_visibility = "public"
 huggingface_token = ""
 
 ###### resolution & loader ######
-max_bucket_reso = 2048
+max_bucket_reso = 1024
 max_data_loader_n_workers = 2
 max_grad_norm = 1
 max_token_length = 75
@@ -53,7 +53,7 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "prodigy"
-optimizer_args = ["decouple=True", "d_coef=0.65", "weight_decay=0.0001", "use_bias_correction=True", "safeguard_warmup=True"]
+optimizer_args = ["decouple=True", "d_coef=0.65", "weight_decay=0.003", "use_bias_correction=True", "safeguard_warmup=True"]
 unet_lr = 0.7
 text_encoder_lr = 0.7
 
@@ -69,12 +69,12 @@ multires_noise_iterations = 6
 multires_noise_discount = 0.3
 
 ###### misc ######
-network_alpha = 128
-network_dim = 64
+network_alpha = 64
+network_dim = 32
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0.2
-caption_dropout_rate = 0.2
+network_dropout = 1
+caption_dropout_rate = 1
 clip_skip = 1
 max_timestep = 1000
 min_snr_gamma = 5
