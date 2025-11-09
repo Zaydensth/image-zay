@@ -48,7 +48,7 @@ save_every_n_epochs = 5
 loss_type = "l2"
 
 ###### batch size ######
-train_batch_size = 6
+train_batch_size = 4
 gradient_accumulation_steps = 1
 
 ###### optimizer ######
@@ -70,8 +70,8 @@ noise_offset = 0.0324
 #multires_noise_discount = 0.3
 
 ###### misc ######
-network_alpha = 192
-network_dim = 192
+network_alpha = 160
+network_dim = 160
 network_module = "networks.lora"
 network_args = []
 network_dropout = 0.02
