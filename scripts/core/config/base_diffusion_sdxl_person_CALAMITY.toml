@@ -20,9 +20,9 @@ huggingface_repo_visibility = "public"
 huggingface_token = ""
 
 max_bucket_reso = 2048
-max_data_loader_n_workers = 8
+max_data_loader_n_workers = 4
 max_grad_norm = 1
-max_token_length = 225
+max_token_length = 150
 min_bucket_reso = 256
 mixed_precision = "bf16"
 no_half_vae = true
@@ -41,7 +41,7 @@ training_comment = ""
 xformers = true
 
 ###### steps and epochs ######
-max_train_epochs = 30
+max_train_epochs = 25
 save_every_n_epochs = 5
 
 ###### loss function ######
