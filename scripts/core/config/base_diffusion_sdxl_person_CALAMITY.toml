@@ -21,7 +21,6 @@ huggingface_token = ""
 
 ###### resolution & loader ######
 max_bucket_reso = 2048
-min_bucket_reso = 256
 max_data_loader_n_workers = 2
 max_grad_norm = 1
 max_token_length = 75
@@ -54,13 +53,12 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "prodigy"
-optimizer_args = ["decouple=True", "d_coef=1", "weight_decay=0.0001", "use_bias_correction=True", "safeguard_warmup=True"]
+optimizer_args = ["decouple=True", "d_coef=0.65", "weight_decay=0.0001", "use_bias_correction=True", "safeguard_warmup=True"]
 unet_lr = 0.7
 text_encoder_lr = 0.7
 
 ###### lr scheduler ######
 lr_scheduler = "cosine_with_restarts"
-lr_warmup_steps = 50
 
 ###### noise offset ######
 #noise_offset_type = "Original"
@@ -75,8 +73,8 @@ network_alpha = 128
 network_dim = 64
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0.02
-caption_dropout_rate = 0.05
+network_dropout = 0.2
+caption_dropout_rate = 0.2
 clip_skip = 1
 max_timestep = 1000
 min_snr_gamma = 5
