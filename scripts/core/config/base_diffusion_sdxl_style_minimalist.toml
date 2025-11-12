@@ -30,7 +30,7 @@ no_half_vae = true
 output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
-prior_loss_weight = 1
+prior_loss_weight = 0.5
 resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
@@ -50,7 +50,7 @@ loss_type = "l2"
 
 ###### batch size ######
 train_batch_size = 8
-gradient_accumulation_steps = 2
+gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "prodigy"
@@ -74,8 +74,8 @@ network_alpha = 128
 network_dim = 64
 network_module = "networks.lora"
 network_args = []
-network_dropout = 0.1
-caption_dropout_rate = 0.1
+network_dropout = 0
+caption_dropout_rate = 0
 clip_skip = 1
 max_timestep = 1000
 min_snr_gamma = 6
