@@ -43,7 +43,7 @@ xformers = true
 
 ###### steps and epochs ######
 max_train_epochs = 30
-save_every_n_epochs = 5
+save_every_n_epochs = 10
 
 ###### loss function ######
 loss_type = "l2"
@@ -54,7 +54,7 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "prodigy"
-optimizer_args = ["decouple=True", "d_coef=0.9", "weight_decay=0.05", "use_bias_correction=True", "safeguard_warmup=True"]
+optimizer_args = ["decouple=True", "d_coef=0.9", "weight_decay=0.5", "use_bias_correction=True", "safeguard_warmup=True"]
 unet_lr = 0.9
 text_encoder_lr = 0.9
 
