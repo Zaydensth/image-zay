@@ -1,3 +1,5 @@
+#gege upload
+
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
@@ -17,6 +19,7 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
+###### resolution & loader ######
 max_bucket_reso = 2048
 max_data_loader_n_workers = 2
 max_grad_norm = 1
@@ -27,7 +30,7 @@ no_half_vae = true
 output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
-prior_loss_weight = 1
+prior_loss_weight = 0.5
 resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
@@ -39,38 +42,42 @@ training_comment = ""
 xformers = true
 
 ###### steps and epochs ######
-save_every_n_epochs = 5
+max_train_epochs = 30
+save_every_n_epochs = 10
 
 ###### loss function ######
 loss_type = "l2"
 
 ###### batch size ######
-train_batch_size = 4
+train_batch_size = 8
 gradient_accumulation_steps = 1
 
 ###### optimizer ######
-optimizer_type = "adamw"
-optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=1e-04", "eps=1e-08",]
-unet_lr = 2e-5
-text_encoder_lr = 2e-6
+optimizer_type = "prodigy"
+optimizer_args = ["decouple=True", "d_coef=0.9", "weight_decay=0.5", "use_bias_correction=True", "safeguard_warmup=True"]
+unet_lr = 0.9
+text_encoder_lr = 0.9
 
 ###### lr scheduler ######
-lr_scheduler = "cosine"
-lr_warmup_steps = 25
+lr_scheduler = "constant"
 
 ###### noise offset ######
-noise_offset_type = "Original"
-noise_offset = 0.0357
+#noise_offset_type = "Original"
+#noise_offset = 0.0378
+#noise_offset_type = "Multires"
+#noise_offset = 0.0398
+#multires_noise_iterations = 6
+#multires_noise_discount = 0.3
 
 ###### misc ######
-network_alpha = -1
-network_dim = -1
+network_alpha = 128
+network_dim = 64
 network_module = "networks.lora"
 network_args = []
 network_dropout = 0
 caption_dropout_rate = 0
 clip_skip = 1
 max_timestep = 1000
-min_snr_gamma = 8
+min_snr_gamma = 6
 scale_weight_norms = 5
 seed = 2951032222
